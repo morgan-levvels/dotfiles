@@ -18,6 +18,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'yggdroot/indentLine'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'dag/vim-fish'
 call plug#end()
 " }}}
 

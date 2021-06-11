@@ -1,0 +1,3 @@
+# Go to...
+alias vi='vim'
+alias vim='nvim'

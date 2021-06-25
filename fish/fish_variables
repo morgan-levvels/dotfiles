@@ -6,7 +6,7 @@ SETUVAR FZF_LEGACY_KEYBINDINGS:1
 SETUVAR FZF_PREVIEW_DIR_CMD:ls
 SETUVAR FZF_PREVIEW_FILE_CMD:head\x20\x2dn\x2010
 SETUVAR FZF_TMUX_HEIGHT:40\x25
-SETUVAR --export JAVA_HOME:/Library/Java/JavaVirtualMachines/adoptopenjdk\x2d16\x2ejdk/Contents/Home
+SETUVAR --export JAVA_HOME:/Library/Java/JavaVirtualMachines/adoptopenjdk\x2d11\x2ejdk/Contents/Home
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
 SETUVAR Z_DATA:/Users/morgan/\x2elocal/share/z/data

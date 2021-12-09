@@ -53,4 +53,4 @@ clean:
 help:
 	@echo "Usage:"
 	@echo "    make : Install apps"
-	@echo "    make clean  : Clean config file"
+	@echo "    make clean : Clean config dirs"

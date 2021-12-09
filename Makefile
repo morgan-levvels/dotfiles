@@ -1,4 +1,4 @@
-.PHONY: fish omf fzf nvim
+.PHONY: fish omf fzf nvim tmuxinator
 
 SHELL := /usr/local/bin/fish
 CONFIG_DIR = $(HOME)/.config
@@ -21,7 +21,7 @@ fzf:
 	fisher install jethrokuan/fzf
 
 nvim:
-	@echo '==> Installing neo vim...'
+	@echo '==> Installing neovim...'
 	brew install nvim
 	@rm -rf $(CONFIG_DIR)/nvim && ln -s $(DOTFILES)/nvim $(CONFIG_DIR)
 
@@ -31,10 +31,17 @@ nvim:
 
 	@nvim +PlugInstall
 
-clean:
-	rm -rf $(HOME)/.oh-my-fish
-	rm -rf $(CONFIG_DIR)/omf
-	rm -rf $(CONFIG_DIR)/fish
-	rm -rf $(CONFIG_DIR)/nvim
+tmuxinator:
+	@echo '==> Installing tmuxinator...'
+	brew install tmuxinator
+	@rm -rf $(CONFIG_DIR)/tmuxinator && ln -fs $(DOTFILES)/tmuxinator $(CONFIG_DIR)
 
-install: fish omf fzf nvim
+clean:
+	@echo '==> cleaning...'
+ 	@rm -rf $(HOME)/.oh-my-fish
+ 	@rm -rf $(CONFIG_DIR)/omf
+ 	@rm -rf $(CONFIG_DIR)/fish
+ 	@rm -rf $(CONFIG_DIR)/nvim
+	@rm -rf $(CONFIG_DIR)/tmuxinator
+
+install: fish omf fzf nvim tmuxinator

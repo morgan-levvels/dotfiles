@@ -1,8 +1,10 @@
-.PHONY: fish omf fzf nvim tmuxinator
-
 SHELL := /usr/local/bin/fish
 CONFIG_DIR = $(HOME)/.config
 DOTFILES = $(shell pwd)
+
+# Install
+.PHONY: fish omf fzf nvim tmuxinator
+install: fish omf fzf nvim tmuxinator
 
 fish:
 	@rm -rf $(CONFIG_DIR)/fish && ln -s $(DOTFILES)/fish $(CONFIG_DIR)
@@ -36,12 +38,19 @@ tmuxinator:
 	brew install tmuxinator
 	@rm -rf $(CONFIG_DIR)/tmuxinator && ln -fs $(DOTFILES)/tmuxinator $(CONFIG_DIR)
 
+# Clean
+.PHONY: clean
 clean:
 	@echo '==> cleaning...'
- 	@rm -rf $(HOME)/.oh-my-fish
- 	@rm -rf $(CONFIG_DIR)/omf
- 	@rm -rf $(CONFIG_DIR)/fish
- 	@rm -rf $(CONFIG_DIR)/nvim
+	@rm -rf $(HOME)/.oh-my-fish
+	@rm -rf $(CONFIG_DIR)/omf
+	@rm -rf $(CONFIG_DIR)/fish
+	@rm -rf $(CONFIG_DIR)/nvim
 	@rm -rf $(CONFIG_DIR)/tmuxinator
 
-install: fish omf fzf nvim tmuxinator
+# Help
+.PHONY: help
+help:
+	@echo "Usage:"
+	@echo "    make : Install apps"
+	@echo "    make clean  : Clean config file"

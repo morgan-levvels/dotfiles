@@ -2,3 +2,6 @@
 
 morgan's dotfiles
 
+```
+$ make help
+```

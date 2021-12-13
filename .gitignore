@@ -2,4 +2,4 @@
 .idea/
 !.idea/icon*.png
 *.iml
-fish/config.local.fish
+fish/local.config.fish

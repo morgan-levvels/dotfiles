@@ -9,7 +9,6 @@ install: asdf direnv nvim fish omf fzf tmuxinator
 asdf:
 	@echo '==> Installing direnv ...'
 	brew install asdf
-	asdf plugin-add java https://github.com/halcyon/asdf-java.git
 
 direnv:
 	@echo '==> Installing direnv ...'

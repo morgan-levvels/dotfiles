@@ -3,16 +3,28 @@ CONFIG_DIR = $(HOME)/.config
 DOTFILES = $(shell pwd)
 
 # Install
-.PHONY: asdf direnv nvim fish omf fzf tmuxinator
-install: asdf direnv nvim fish omf fzf tmuxinator
+.PHONY: tools nvim fish omf fzf tmuxinator
+install: tools nvim fish omf fzf tmuxinator
 
-asdf:
-	@echo '==> Installing direnv ...'
+tools:
+	@echo '==> Installing tools ...'
 	brew install asdf
-
-direnv:
-	@echo '==> Installing direnv ...'
 	brew install direnv
+	brew install exa
+	brew install z
+	brew install jq
+	brew install curl
+
+nvim:
+	@echo '==> Installing neovim...'
+	brew install nvim
+	@rm -rf $(CONFIG_DIR)/nvim && ln -s $(DOTFILES)/nvim $(CONFIG_DIR)
+
+	@echo '==> Installing vim-plug...'
+	@curl -fLo $(HOME)/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+	@nvim +PlugInstall
 
 fish:
 	@echo '==> Installing fish shell...'
@@ -32,16 +44,6 @@ fzf:
 
 	fisher install jethrokuan/fzf
 
-nvim:
-	@echo '==> Installing neovim...'
-	brew install nvim
-	@rm -rf $(CONFIG_DIR)/nvim && ln -s $(DOTFILES)/nvim $(CONFIG_DIR)
-
-	@echo '==> Installing vim-plug...'
-	@curl -fLo $(HOME)/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-		https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-	@nvim +PlugInstall
 
 tmuxinator:
 	@echo '==> Installing tmuxinator...'

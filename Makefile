@@ -3,8 +3,13 @@ CONFIG_DIR = $(HOME)/.config
 DOTFILES = $(shell pwd)
 
 # Install
-.PHONY: direnv nvim fish omf fzf tmuxinator
-install: direnv nvim fish omf fzf tmuxinator
+.PHONY: asdf direnv nvim fish omf fzf tmuxinator
+install: asdf direnv nvim fish omf fzf tmuxinator
+
+asdf:
+	@echo '==> Installing direnv ...'
+	brew install asdf
+	asdf plugin-add java https://github.com/halcyon/asdf-java.git
 
 direnv:
 	@echo '==> Installing direnv ...'

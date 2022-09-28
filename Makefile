@@ -3,8 +3,12 @@ CONFIG_DIR = $(HOME)/.config
 DOTFILES = $(shell pwd)
 
 # Install
-.PHONY: fish omf fzf nvim tmuxinator
-install: fish omf fzf nvim tmuxinator
+.PHONY: direnv nvim fish omf fzf tmuxinator
+install: direnv nvim fish omf fzf tmuxinator
+
+direnv:
+	@echo '==> Installing direnv ...'
+	brew install direnv
 
 fish:
 	@rm -rf $(CONFIG_DIR)/fish && ln -s $(DOTFILES)/fish $(CONFIG_DIR)

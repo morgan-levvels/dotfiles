@@ -1,3 +1,7 @@
+if test -f /opt/homebrew/bin/brew
+    eval (/opt/homebrew/bin/brew shellenv)
+end
+
 set -Ux JAVA_HOME (/usr/libexec/java_home -v 11)
 direnv hook fish | source
 

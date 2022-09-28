@@ -16,6 +16,8 @@ direnv:
 	brew install direnv
 
 fish:
+	@echo '==> Installing fish shell...'
+	brew install fish
 	@rm -rf $(CONFIG_DIR)/fish && ln -s $(DOTFILES)/fish $(CONFIG_DIR)
 
 omf:

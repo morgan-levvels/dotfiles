@@ -26,3 +26,6 @@ alias glola="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Crese
 alias glog='git log --oneline --decorate --graph'
 alias gloga='git log --oneline --decorate --graph --all'
 alias gbD='git branch -D'
+
+# python
+alias python='python3'

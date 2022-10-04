@@ -3,8 +3,8 @@ CONFIG_DIR = $(HOME)/.config
 DOTFILES = $(shell pwd)
 
 # Install
-.PHONY: tools nvim fish omf fzf tmuxinator
-install: tools nvim fish omf fzf tmuxinator
+.PHONY: tools jdk nvim fish omf fzf tmuxinator
+install: tools jdk nvim fish omf fzf tmuxinator
 
 tools:
 	@echo '==> Installing tools ...'
@@ -15,6 +15,11 @@ tools:
 	brew install jq
 	brew install curl
 
+jdk:
+	@echo '==> Installing jenv...'
+	brew install adoptopenjdk11 --cask
+	brew install jenv
+	jenv add (/usr/libexec/java_home -v 11)
 nvim:
 	@echo '==> Installing neovim...'
 	brew install nvim
@@ -36,7 +41,7 @@ omf:
 	@rm -rf $(CONFIG_DIR)/omf && ln -s $(DOTFILES)/omf $(CONFIG_DIR)
 
 fzf:
-	@echo '==> Installing funzzy finder...'
+	@echo '==> Installing fuzzy finder...'
 	brew install fzf
 
 	@echo '==> Installing fisher plugin manager...'

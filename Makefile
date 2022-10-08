@@ -12,8 +12,7 @@ tools:
 	brew install direnv
 	brew install exa
 	brew install z
-	brew install jq
-	brew install curl
+	brew install jenv
 
 jdk:
 	@echo '==> Installing jenv...'

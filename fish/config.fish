@@ -15,4 +15,4 @@ set PATH $HOME/.jenv/bin $PATH
 status --is-interactive; and source (jenv init -|psub)
 
 # jdk
-set -x JAVA_HOME (/usr/libexec/java_home -v 11)
+set -x JAVA_HOME /Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home

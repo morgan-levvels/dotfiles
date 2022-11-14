@@ -18,7 +18,8 @@ jdk:
 	@echo '==> Installing jenv...'
 	brew install adoptopenjdk11 --cask
 	brew install jenv
-	jenv add (/usr/libexec/java_home -v 11)
+	jenv add (/usr/libexec/java_home -v 17)
+	jenv global system
 nvim:
 	@echo '==> Installing neovim...'
 	brew install nvim
